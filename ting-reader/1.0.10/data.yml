@@ -11,14 +11,14 @@ additionalProperties:
       description:
         zh: "设置应用的访问端口，有效范围：1-65535"
         en: "Set the access port for the application, valid range: 1-65535"
-    - type: "password"
-      labelZh: "JWT 密钥"
-      labelEn: "JWT Secret"
+
+    - type: "text"
+      labelZh: "有声书存储路径"
+      labelEn: "Audiobook Storage Path"
       required: true
-      envKey: "JWT_SECRET"
-      default: ""
-      edit: false
-      random: true
+      envKey: "AUDIOBOOK_PATH"
+      default: "./storage"
+      edit: true
       description:
-        zh: "用于签发 JWT 令牌的密钥，自动生成"
-        en: "Key used to sign JWT tokens, automatically generated"
+        zh: "有声书文件的存储位置，默认为安装目录下的 storage 文件夹，可修改为其他绝对路径"
+        en: "Storage location for audiobooks. Defaults to the storage folder in the installation directory, can be changed to an absolute path."

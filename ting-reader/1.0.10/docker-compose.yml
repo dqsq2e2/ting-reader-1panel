@@ -13,7 +13,7 @@ services:
       - "${PANEL_APP_PORT_HTTP}:3000"
     volumes:
       - ./data:/app/data
-      - ./storage:/app/storage
+      - ${AUDIOBOOK_PATH}:/app/storage
       - ./cache:/app/cache
     environment:
       - JWT_SECRET=${JWT_SECRET}
