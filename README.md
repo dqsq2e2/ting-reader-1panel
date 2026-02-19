@@ -1,40 +1,28 @@
-# Ting Reader - 1Panel 应用包
+# Ting Reader 🎧
 
-本项目提供了 [Ting Reader](https://github.com/dqsq2e2/ting-reader) 在 [1Panel](https://1panel.cn/) 面板上的应用适配包。
+Ting Reader 是一款轻量级的自托管有声书管理平台，旨在为用户提供一个美观、智能的个人音频图书馆。支持自动元数据刮削、多端进度同步及 WebDAV 远程存储。
 
-## 目录结构
+> **🌐 官方网站：[https://www.tingreader.cn](https://www.tingreader.cn)**
 
-```text
-.
-├── ting-reader/       # 1Panel 应用包目录
-│   ├── 1.0.10/        # 应用版本目录
-│   ├── data.yml       # 应用元数据
-│   ├── logo.png       # 应用图标
-│   └── README.md      # 应用说明
-└── ...
-```
+## 🌟 核心特性
 
-## 使用方法
+- **智能自动化**：集成喜马拉雅元数据刮削，自动抓取书名、作者、演播者、简介及精美封面。
+- **极致视觉**：根据书籍封面**自动提取主色调**，界面随书而变，支持沉浸式播放体验。
+- **全能存储**：完美支持本地目录挂载及 WebDAV 协议（如 Alist、PikPak），海量资源轻松接入。
+- **格式兼容**：支持多种音频格式，包括 **MP3, M4A, M4B, WAV, FLAC, OGG, OPUS, AAC, WMA** 以及喜马拉雅加密格式 **XM**。
+- **全平台覆盖**：自适应移动端网页，支持倍速调节、睡眠定时及跨设备进度记忆。
+- **外挂小窗 (Widget)**：支持通过 Iframe 将播放小窗嵌入到其他网站，支持自定义 CSS 代码注入，实现高度个性化定制。
+- **完美夜间模式**：适配深色模式，保护视力，深夜听书更惬意。
 
-### 方法一：直接上传（推荐）
+## ⚠️ 默认账户信息
 
-1.  下载本项目 Release 页面最新发布的 `ting-reader-1panel.zip` 压缩包。
-2.  解压压缩包，获得 `ting-reader` 文件夹。
-3.  将 `ting-reader` 文件夹上传到 1Panel 服务器的本地应用目录：
-    *   默认路径：`/opt/1panel/resource/apps/local/`
-    *   上传后路径应为：`/opt/1panel/resource/apps/local/ting-reader/`
-4.  登录 1Panel 面板，进入「应用商店」。
-5.  点击右上角的「更多」->「同步本地应用」。
-6.  在侧边栏选择「本地应用」，找到 **Ting Reader** 点击安装即可。
+- **用户名**：`admin`
+- **密码**：`admin123`
 
-### 方法二：Git Clone
+登录后请立即前往“个性化设置”修改默认密码。
 
-如果你熟悉命令行，也可以直接在服务器上操作：
+## 📁 数据卷说明
 
-```bash
-cd /opt/1panel/resource/apps/local/
-git clone https://github.com/dqsq2e2/ting-reader-1panel.git temp_repo
-mv temp_repo/ting-reader ./
-rm -rf temp_repo
-# 然后在面板中同步本地应用并安装
-```
+- `./data`: 数据库及配置数据
+- `./storage`: 有声书存储目录（可在应用详情页通过文件管理上传书籍）
+- `./cache`: 缓存目录
