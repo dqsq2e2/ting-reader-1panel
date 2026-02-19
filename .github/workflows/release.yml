@@ -1,0 +1,41 @@
+name: Build and Release 1Panel App
+
+on:
+  push:
+    paths:
+      - 'ting-reader/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Zip ting-reader directory
+        run: |
+          zip -r ting-reader-1panel.zip ting-reader
+
+      - name: Update Latest Tag
+        uses: richardsimko/update-tag@v1
+        with:
+          tag_name: latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          files: ting-reader-1panel.zip
+          body: |
+            Automatic build from ${{ github.sha }}
+            
+            包含最新的 Ting Reader 1Panel 应用包。
+            下载后解压，将 `ting-reader` 文件夹上传至 `/opt/1panel/resource/apps/local/` 即可。
+          draft: false
+          prerelease: false
