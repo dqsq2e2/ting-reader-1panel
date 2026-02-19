@@ -1,28 +1,49 @@
-# Ting Reader 🎧
+# Ting Reader - 1Panel 应用包
 
-Ting Reader 是一款轻量级的自托管有声书管理平台，旨在为用户提供一个美观、智能的个人音频图书馆。支持自动元数据刮削、多端进度同步及 WebDAV 远程存储。
+本项目提供了 [Ting Reader](https://github.com/dqsq2e2/ting-reader) 在 [1Panel](https://1panel.cn/) 面板上的应用适配包。
 
-> **🌐 官方网站：[https://www.tingreader.cn](https://www.tingreader.cn)**
+## 目录结构
 
-## 🌟 核心特性
+```text
+.
+├── ting-reader/       # 1Panel 应用包目录
+│   ├── 1.0.10/        # 应用版本目录
+│   ├── data.yml       # 应用元数据
+│   ├── logo.png       # 应用图标
+│   └── README.md      # 应用说明
+└── ...
+```
 
-- **智能自动化**：集成喜马拉雅元数据刮削，自动抓取书名、作者、演播者、简介及精美封面。
-- **极致视觉**：根据书籍封面**自动提取主色调**，界面随书而变，支持沉浸式播放体验。
-- **全能存储**：完美支持本地目录挂载及 WebDAV 协议（如 Alist、PikPak），海量资源轻松接入。
-- **格式兼容**：支持多种音频格式，包括 **MP3, M4A, M4B, WAV, FLAC, OGG, OPUS, AAC, WMA** 以及喜马拉雅加密格式 **XM**。
-- **全平台覆盖**：自适应移动端网页，支持倍速调节、睡眠定时及跨设备进度记忆。
-- **外挂小窗 (Widget)**：支持通过 Iframe 将播放小窗嵌入到其他网站，支持自定义 CSS 代码注入，实现高度个性化定制。
-- **完美夜间模式**：适配深色模式，保护视力，深夜听书更惬意。
+## 使用方法
 
-## ⚠️ 默认账户信息
+### 一键安装命令（推荐）
 
-- **用户名**：`admin`
-- **密码**：`admin123`
+通过 SSH 连接到您的服务器，直接执行以下命令即可快速安装：
 
-登录后请立即前往“个性化设置”修改默认密码。
+```bash
+# 进入 1Panel 本地应用目录
+cd /opt/1panel/resource/apps/local/
 
-## 📁 数据卷说明
+# 下载最新的应用包
+wget https://github.com/dqsq2e2/ting-reader-1panel/releases/download/latest/ting-reader-1panel.zip
 
-- `./data`: 数据库及配置数据
-- `./storage`: 有声书存储目录（可在应用详情页通过文件管理上传书籍）
-- `./cache`: 缓存目录
+# 解压应用包
+unzip -o ting-reader-1panel.zip
+
+# 删除压缩包
+rm ting-reader-1panel.zip
+
+# 设置权限（可选，防止权限问题）
+chown -R root:root ting-reader/
+```
+
+### 安装步骤
+
+1.  执行上述命令后。
+2.  登录 1Panel 面板，进入「应用商店」。
+3.  点击右上角的「更多」->「同步本地应用」。
+4.  在侧边栏选择「本地应用」，找到 **Ting Reader** 点击安装即可。
+
+## 开发与维护
+
+本项目包含自动打包工作流。当 `ting-reader` 目录下的文件发生变更时，GitHub Actions 会自动触发打包，并发布到 `latest` 标签的 Release 中。
