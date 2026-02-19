@@ -1,0 +1,24 @@
+additionalProperties:
+  formFields:
+    - type: "text"
+      labelZh: "应用端口"
+      labelEn: "App Port"
+      required: true
+      envKey: "PANEL_APP_PORT_HTTP"
+      default: 3000
+      edit: true
+      rule: "paramPort"
+      description:
+        zh: "设置应用的访问端口，有效范围：1-65535"
+        en: "Set the access port for the application, valid range: 1-65535"
+    - type: "password"
+      labelZh: "JWT 密钥"
+      labelEn: "JWT Secret"
+      required: true
+      envKey: "JWT_SECRET"
+      default: ""
+      edit: false
+      random: true
+      description:
+        zh: "用于签发 JWT 令牌的密钥，自动生成"
+        en: "Key used to sign JWT tokens, automatically generated"
